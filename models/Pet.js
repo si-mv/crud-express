@@ -3,13 +3,15 @@ const { DataTypes } = require('sequelize')
 
 const Pet = db.define('Pet', {
   animal: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   },
   name: {
     type: DataTypes.STRING
   },
   age: {
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
 })
 

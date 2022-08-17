@@ -8,3 +8,33 @@ GET http://localhost:5000/pet/2
 
 ### If the pet doesn't exist, want a relevant error code!
 GET http://localhost:5000/pet/100
+
+### Try and delete a pet
+DELETE http://localhost:5000/pet/3
+
+### Post requests can have a BODY!
+POST http://localhost:5000/pet
+content-type: application/json
+
+{
+  "name": "Mickey",
+  "animal": "Mouse",
+  "age": 120
+}
+
+### Bad requests get useful errors
+POST http://localhost:5000/pet
+content-type: application/json
+
+{
+  "name": "Mickey",
+  "animal": "Mouse"
+}
+
+### We can update pets!
+PUT http://localhost:5000/pet/2
+Content-Type: application/json
+
+{
+  "age": null
+}
