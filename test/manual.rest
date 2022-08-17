@@ -1,0 +1,10 @@
+GET http://localhost:5000/ping
+
+###
+GET http://localhost:5000/pet
+
+### Get a pet by id
+GET http://localhost:5000/pet/2
+
+### If the pet doesn't exist, want a relevant error code!
+GET http://localhost:5000/pet/100
