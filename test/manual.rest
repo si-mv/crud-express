@@ -36,5 +36,13 @@ PUT http://localhost:5000/pet/2
 Content-Type: application/json
 
 {
+  "age": 6
+}
+
+### A bad request will throw an error
+PUT http://localhost:5000/pet/2
+Content-Type: application/json
+
+{
   "age": null
 }
