@@ -57,7 +57,7 @@ app.post('/pet', async (req, res) => {
   } catch (error) {
     res.status(400).send(error.errors)
   }
-  logTable(Pet)
+  await logTable(Pet)
 })
 
 // update a pet by id
