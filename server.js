@@ -1,6 +1,5 @@
 const express = require('express')
 const { seed, Pet } = require('./models')
-const { logTable } = require('sequelize-logger')
 
 const app = express()
 // app at the moment, doesn't know how to turn the Body of a request
@@ -47,7 +46,6 @@ app.delete('/pet/:id', async (req, res) => {
     return
   }
 
-  await logTable(Pet)
   res.status(202).send(`Pet with id ${req.params.id} was deleted.`)
 })
 
@@ -61,7 +59,6 @@ app.post('/pet', async (req, res) => {
   } catch (error) {
     res.status(400).send(error.errors)
   }
-  await logTable(Pet)
 })
 
 // update a pet by id
@@ -80,8 +77,6 @@ app.put('/pet/:id', async (req, res) => {
     res.status(400).send(error.errors)
   }
 
-  logTable(Pet)
-
 })
 
 async function main () {
@@ -90,8 +85,9 @@ async function main () {
   await seed()
 
   //then start the server
-  const PORT = 5000
+  const PORT = process.env.PORT || 5000
   app.listen(PORT, () => { console.log(`Listening on port ${PORT}.`) })
+  
 }
 
 main()
