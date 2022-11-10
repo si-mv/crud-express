@@ -8,6 +8,10 @@ const app = express()
 // the below gives app the power to parse body into a js object:
 app.use(express.json())
 
+app.get('/', (req, res) => {
+  res.send({ msg: 'Hello world' })
+})
+
 // Get all pets
 app.get('/pet', async (req, res) => {
 
