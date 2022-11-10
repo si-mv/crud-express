@@ -1,9 +1,10 @@
 const { Sequelize } = require('sequelize')
+const path = require('path')
 
 const db = new Sequelize({
   dialect: 'sqlite',
-  storage: ':memory:',
-  logging: false
+  storage: path.join(__dirname, 'db.sqlite'),
+  logging: true
 })
 
 module.exports = db
